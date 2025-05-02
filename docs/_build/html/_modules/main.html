@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>main &mdash; документация GeoAcademy </title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=372fde1a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GeoAcademy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">geoacademy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GeoAcademy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Код модуля</a></li>
+      <li class="breadcrumb-item active">main</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Исходный код main</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">ГеоАкадемия - обучающая игра по географии</span>
+
+<span class="sd">Этот модуль содержит основную логику игры &#39;ГеоАкадемия&#39;, которая помогает игрокам изучать</span>
+<span class="sd">страны, столицы, флаги и другие географические особенности в интерактивной форме.</span>
+
+<span class="sd">Основные возможности:</span>
+<span class="sd">- Инициализация новой игры с выбором уровня сложности</span>
+<span class="sd">- Загрузка вопросов по различным темам</span>
+<span class="sd">- Управление профилем игрока и статистикой</span>
+<span class="sd">- Основной игровой цикл с вопросами и подсчетом очков</span>
+<span class="sd">- Система подсказок и обучения</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="initialize_game">
+<a class="viewcode-back" href="../main.html#main.initialize_game">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">initialize_game</span><span class="p">(</span><span class="n">player_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">difficulty</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Инициализирует новую игровую сессию.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        player_name (str): Имя игрока</span>
+<span class="sd">        difficulty (str): Уровень сложности (&#39;easy&#39;, &#39;medium&#39;, &#39;hard&#39;)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: Словарь с начальными настройками игры:</span>
+<span class="sd">            {</span>
+<span class="sd">                &#39;player_name&#39;: str,</span>
+<span class="sd">                &#39;difficulty&#39;: str,</span>
+<span class="sd">                &#39;score&#39;: int,</span>
+<span class="sd">                &#39;current_level&#39;: int,</span>
+<span class="sd">                &#39;unlocked_categories&#39;: list[str]</span>
+<span class="sd">            }</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; initialize_game(&#39;Анна&#39;, &#39;medium&#39;)</span>
+<span class="sd">        {&#39;player_name&#39;: &#39;Анна&#39;, &#39;difficulty&#39;: &#39;medium&#39;, &#39;score&#39;: 0, ...}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="load_questions">
+<a class="viewcode-back" href="../main.html#main.load_questions">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_questions</span><span class="p">(</span><span class="n">category</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">difficulty</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Загружает вопросы для указанной категории и уровня сложности.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        category (str): Категория вопросов (&#39;countries&#39;, &#39;capitals&#39;, &#39;flags&#39;)</span>
+<span class="sd">        difficulty (str): Уровень сложности (&#39;easy&#39;, &#39;medium&#39;, &#39;hard&#39;)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list[dict]: Список вопросов в формате:</span>
+<span class="sd">            [</span>
+<span class="sd">                {</span>
+<span class="sd">                    &#39;question&#39;: str,</span>
+<span class="sd">                    &#39;options&#39;: list[str],</span>
+<span class="sd">                    &#39;answer&#39;: str,</span>
+<span class="sd">                    &#39;hint&#39;: str,</span>
+<span class="sd">                    &#39;explanation&#39;: str</span>
+<span class="sd">                },</span>
+<span class="sd">                ...</span>
+<span class="sd">            ]</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: Если категория или уровень сложности не существуют</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="display_question">
+<a class="viewcode-back" href="../main.html#main.display_question">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">display_question</span><span class="p">(</span><span class="n">question</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Отображает вопрос и варианты ответа игроку.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        question (dict): Словарь с данными вопроса</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="check_answer">
+<a class="viewcode-back" href="../main.html#main.check_answer">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">check_answer</span><span class="p">(</span><span class="n">user_answer</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">correct_answer</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Проверяет правильность ответа игрока.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        user_answer (str): Ответ игрока</span>
+<span class="sd">        correct_answer (str): Правильный ответ</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: True если ответ правильный, иначе False</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="update_score">
+<a class="viewcode-back" href="../main.html#main.update_score">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">update_score</span><span class="p">(</span><span class="n">current_score</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">is_correct</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">difficulty</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Обновляет счет игрока на основе правильности ответа и сложности.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        current_score (int): Текущий счет</span>
+<span class="sd">        is_correct (bool): Был ли ответ правильным</span>
+<span class="sd">        difficulty (str): Уровень сложности</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: Новый счет игрока</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="provide_hint">
+<a class="viewcode-back" href="../main.html#main.provide_hint">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">provide_hint</span><span class="p">(</span><span class="n">question</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Предоставляет подсказку для текущего вопроса.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        question (dict): Словарь с данными вопроса</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Текст подсказки</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="show_explanation">
+<a class="viewcode-back" href="../main.html#main.show_explanation">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_explanation</span><span class="p">(</span><span class="n">question</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Показывает объяснение правильного ответа.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        question (dict): Словарь с данными вопроса</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Текст объяснения</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="save_game_progress">
+<a class="viewcode-back" href="../main.html#main.save_game_progress">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">save_game_progress</span><span class="p">(</span><span class="n">player_data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Сохраняет прогресс игрока.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        player_data (dict): Данные игрока для сохранения</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="main_game_loop">
+<a class="viewcode-back" href="../main.html#main.main_game_loop">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">main_game_loop</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Основной игровой цикл. Управляет последовательностью вопросов,</span>
+<span class="sd">    подсчетом очков и взаимодействием с игроком.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Точка входа в приложение&quot;&quot;&quot;</span>
+    <span class="n">main_game_loop</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2025, Dmitriy, Polina, Nikita. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

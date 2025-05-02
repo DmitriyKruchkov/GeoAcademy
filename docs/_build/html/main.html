@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>main module &mdash; документация GeoAcademy </title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=372fde1a"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="prev" title="geoacademy" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            GeoAcademy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">geoacademy</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">main module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main.check_answer"><code class="docutils literal notranslate"><span class="pre">check_answer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main.display_question"><code class="docutils literal notranslate"><span class="pre">display_question()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main.initialize_game"><code class="docutils literal notranslate"><span class="pre">initialize_game()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main.load_questions"><code class="docutils literal notranslate"><span class="pre">load_questions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main.main_game_loop"><code class="docutils literal notranslate"><span class="pre">main_game_loop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main.provide_hint"><code class="docutils literal notranslate"><span class="pre">provide_hint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main.save_game_progress"><code class="docutils literal notranslate"><span class="pre">save_game_progress()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main.show_explanation"><code class="docutils literal notranslate"><span class="pre">show_explanation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main.update_score"><code class="docutils literal notranslate"><span class="pre">update_score()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoAcademy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">geoacademy</a></li>
+      <li class="breadcrumb-item active">main module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/main.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-main">
+<span id="main-module"></span><h1>main module<a class="headerlink" href="#module-main" title="Ссылка на этот заголовок"></a></h1>
+<p>ГеоАкадемия - обучающая игра по географии</p>
+<p>Этот модуль содержит основную логику игры „ГеоАкадемия“, которая помогает игрокам изучать
+страны, столицы, флаги и другие географические особенности в интерактивной форме.</p>
+<p>Основные возможности:
+- Инициализация новой игры с выбором уровня сложности
+- Загрузка вопросов по различным темам
+- Управление профилем игрока и статистикой
+- Основной игровой цикл с вопросами и подсчетом очков
+- Система подсказок и обучения</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="main.check_answer">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">check_answer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_answer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct_answer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/main.html#check_answer"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#main.check_answer" title="Ссылка на это определение"></a></dt>
+<dd><p>Проверяет правильность ответа игрока.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>user_answer (str): Ответ игрока
+correct_answer (str): Правильный ответ</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True если ответ правильный, иначе False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.display_question">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">display_question</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/main.html#display_question"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#main.display_question" title="Ссылка на это определение"></a></dt>
+<dd><p>Отображает вопрос и варианты ответа игроку.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>question (dict): Словарь с данными вопроса</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.initialize_game">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">initialize_game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difficulty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/main.html#initialize_game"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#main.initialize_game" title="Ссылка на это определение"></a></dt>
+<dd><p>Инициализирует новую игровую сессию.</p>
+<dl>
+<dt>Args:</dt><dd><p>player_name (str): Имя игрока
+difficulty (str): Уровень сложности („easy“, „medium“, „hard“)</p>
+</dd>
+<dt>Returns:</dt><dd><dl>
+<dt>dict: Словарь с начальными настройками игры:</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>„player_name“: str,
+„difficulty“: str,
+„score“: int,
+„current_level“: int,
+„unlocked_categories“: list[str]</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+</dd>
+<dt>Examples:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">initialize_game</span><span class="p">(</span><span class="s1">&#39;Анна&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">)</span>
+<span class="go">{&#39;player_name&#39;: &#39;Анна&#39;, &#39;difficulty&#39;: &#39;medium&#39;, &#39;score&#39;: 0, ...}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.load_questions">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">load_questions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difficulty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/main.html#load_questions"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#main.load_questions" title="Ссылка на это определение"></a></dt>
+<dd><p>Загружает вопросы для указанной категории и уровня сложности.</p>
+<dl>
+<dt>Args:</dt><dd><p>category (str): Категория вопросов („countries“, „capitals“, „flags“)
+difficulty (str): Уровень сложности („easy“, „medium“, „hard“)</p>
+</dd>
+<dt>Returns:</dt><dd><dl>
+<dt>list[dict]: Список вопросов в формате:</dt><dd><dl class="simple">
+<dt>[</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>„question“: str,
+„options“: list[str],
+„answer“: str,
+„hint“: str,
+„explanation“: str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>]</p>
+</dd>
+</dl>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: Если категория или уровень сложности не существуют</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.main_game_loop">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">main_game_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/main.html#main_game_loop"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#main.main_game_loop" title="Ссылка на это определение"></a></dt>
+<dd><p>Основной игровой цикл. Управляет последовательностью вопросов,
+подсчетом очков и взаимодействием с игроком.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.provide_hint">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">provide_hint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/main.html#provide_hint"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#main.provide_hint" title="Ссылка на это определение"></a></dt>
+<dd><p>Предоставляет подсказку для текущего вопроса.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>question (dict): Словарь с данными вопроса</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: Текст подсказки</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.save_game_progress">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">save_game_progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/main.html#save_game_progress"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#main.save_game_progress" title="Ссылка на это определение"></a></dt>
+<dd><p>Сохраняет прогресс игрока.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>player_data (dict): Данные игрока для сохранения</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.show_explanation">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">show_explanation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/main.html#show_explanation"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#main.show_explanation" title="Ссылка на это определение"></a></dt>
+<dd><p>Показывает объяснение правильного ответа.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>question (dict): Словарь с данными вопроса</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: Текст объяснения</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.update_score">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">update_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_correct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difficulty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/main.html#update_score"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#main.update_score" title="Ссылка на это определение"></a></dt>
+<dd><p>Обновляет счет игрока на основе правильности ответа и сложности.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>current_score (int): Текущий счет
+is_correct (bool): Был ли ответ правильным
+difficulty (str): Уровень сложности</p>
+</dd>
+<dt>Returns:</dt><dd><p>int: Новый счет игрока</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="modules.html" class="btn btn-neutral float-left" title="geoacademy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2025, Dmitriy, Polina, Nikita. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
